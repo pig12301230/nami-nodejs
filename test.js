@@ -45,6 +45,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
 
 // urls.forEach(crawler);
+rssUrls.forEach(rssCrawler);
 
 function schedulePerMinute() {
   schedule.scheduleJob("30 * * * * *", function() {
@@ -52,7 +53,7 @@ function schedulePerMinute() {
   })
 }
 
-schedulePerMinute()
+// schedulePerMinute()
 
 function crawler(value, index, ar) {
   request(value, function(error, res, body){
