@@ -53,7 +53,7 @@ function schedulePerMinute() {
   })
 }
 
-// schedulePerMinute()
+schedulePerMinute()
 
 function crawler(value, index, ar) {
   request(value, function(error, res, body){
@@ -70,10 +70,6 @@ function crawler(value, index, ar) {
   function rssCrawler(value, index, ar) {
     rssSpider.fetchRss(value).then(function(data){
       data.forEach(print);
-      // var jsonObj =  JSON.parse(data);
-      // console.log(jsonObj);
-      // console.log(jsonObj.title);
-      // console.log(jsonObj.link);
     });
   }
 // ".", "#", "$", "[", or "]"
@@ -82,9 +78,10 @@ function print(value, index, ar){
   console.log(value.title);
   console.log(value.link);
   var title = (value.title).replace(/(【|】|#|$|\[|\]|\.)/g, "");
-  console.log(title);
   firebase.database().ref("Article/" + title).set({
     title: value.title,
     link: value.link
   });
 }
+
+module.exports  = rssUrls.forEach(rssCrawler);
