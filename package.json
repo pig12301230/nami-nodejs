@@ -4,11 +4,12 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "start":"node test.js"
+    "start": "node test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^3.9.0"
+    "firebase": "^3.9.0",
+    "firebase-admin": "^4.2.1"
   }
 }
